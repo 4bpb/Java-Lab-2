@@ -1,0 +1,62 @@
+/**
+ * Write a description of class assignment here.
+ *
+ * @author ()
+ * @version (1.4)
+ */
+import java.util.Scanner;
+public class assignment
+{
+    // instance variables - replace the example below with your own
+
+    public static void assignment()
+    {
+        System.out.println("\f");
+
+        Scanner reader = new Scanner(System.in);  // Reading from System.in
+        System.out.println("What is the Velocity?: ");
+        double velocity = reader.nextDouble();
+        System.out.println("What is the Angle?: ");
+        double angle = reader.nextDouble();
+        System.out.println("What is the Distance?: ");
+        double distance = reader.nextDouble();
+        System.out.println("What is the Elevation?: ");
+        double elevation = reader.nextDouble();
+        System.out.println("What is the Size: ");
+        double size = reader.nextDouble();
+        //Converting angle to cosine
+        double rad = (angle*Math.PI)/180;
+        double cosine = Math.cos(rad);
+        if(cosine == 0 || velocity == 0)
+        {
+            System.out.println("The cosine is zero or velocity is zero and the distance cannot be calculated please exit the program.///");
+        }
+        else
+        {
+            double time = (distance/(velocity*cosine));
+            double height = (velocity*time*Math.sin(rad) - ((32.17*Math.pow(time,2)/2)));
+            if(height < 0)
+            {
+                System.out.println("You did not reach the target!!!!!" + "The Targets height was "+height);
+            }
+            else
+            {
+                if(height<elevation)
+                {
+                    System.out.println("Cannon ball Went under the target!!!!");
+                }
+                else
+                {
+                    if(height<elevation+size)
+                    {
+                        System.out.println("The cannon ball hit the target!!!!");
+                    }
+                    else
+                    {
+                        System.out.println("You went over the target!!!");
+                    }
+                }
+            }
+        }   
+    }
+}
