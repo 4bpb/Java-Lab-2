@@ -29,34 +29,35 @@ public class assignment
         double cosine = Math.cos(rad);
         if(cosine == 0 || velocity == 0)
         {
-            System.out.println("The cosine is zero or velocity is zero and the distance cannot be calculated please exit the program.///");
+            System.out.println("The cosine is zero or velocity is zero and the distance cannot be calculated please exit the program.");
         }
         else
         {
             double time = (distance/(velocity*cosine));
             double height = (velocity*time*Math.sin(rad) - ((32.17*Math.pow(time,2)/2)));
-            if(height < 0)
+            if(height <= 0)
             {
-                System.out.println("You did not reach the target!!!!!" + "The Targets height was "+height);
+                System.out.println("You did not reach the Target!!!!" );
             }
             else
             {
                 if(height<elevation)
                 {
-                    System.out.println("Cannon ball Went under the target!!!!");
+                    System.out.println("Cannon ball Went under the Target!!!!"+ "The Targets height was "+height);
                 }
                 else
                 {
-                    if(height<elevation+size)
+                    if(height<=elevation+size)
                     {
-                        System.out.println("The cannon ball hit the target!!!!");
+                        System.out.println("The cannon ball hit the Target!!!!");
                     }
                     else
                     {
-                        System.out.println("You went over the target!!!");
+                        System.out.println("You went over the Target!!!!"+ "The Targets height was "+height);
                     }
                 }
             }
         }   
     }
 }
+
